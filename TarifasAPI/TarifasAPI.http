@@ -1,0 +1,6 @@
+@TarifasAPI_HostAddress = http://localhost:5241
+
+GET {{TarifasAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

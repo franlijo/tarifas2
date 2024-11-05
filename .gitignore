@@ -1,0 +1,28 @@
+# Ignorar dependencias de Node y Angular
+app-tarifas/node_modules/
+app-tarifas/dist/
+app-tarifas/.angular/cache/
+app-tarifas/.angular/config.json
+app-tarifas/.env
+
+# Ignorar dependencias de .NET (WebAPI)
+TarifasAPI/bin/
+TarifasAPI/obj/
+TarifasAPI/*.db
+TarifasAPI/*.db-journal
+TarifasAPI/appsettings.*.json
+TarifasAPI/wwwroot/
+TarifasAPI/.vscode/
+TarifasAPI/.env
+
+# Archivos generales y de configuración locales
+*.log
+*.tmp
+*.env
+.vscode/
+.DS_Store
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates

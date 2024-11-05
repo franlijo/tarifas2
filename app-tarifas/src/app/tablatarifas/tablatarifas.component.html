@@ -1,0 +1,31 @@
+<h2>Tabla de Tarifas</h2>
+
+
+@if (tarifas){
+
+<table mat-table [dataSource]="tarifas" class="mat-elevation-z8 indice-elementos">
+    <ng-container matColumnDef="desdeFecha">
+        <th mat-header-cell *matHeaderCellDef>Desde Fecha</th>
+        <td mat-cell *matCellDef="let tarifa">{{tarifa.desdeFecha}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="desdeTrabajador">
+        <th mat-header-cell *matHeaderCellDef>Desde Trabajadores</th>
+        <td mat-cell *matCellDef="let tarifa">{{tarifa.desdeTrabajador}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="importeTrabajadorDia">
+        <th mat-header-cell *matHeaderCellDef>Importe diario</th>
+        <td mat-cell *matCellDef="let tarifa">{{tarifa.importeTrabajadorDia}}</td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
+
+
+</table>
+}@else {
+<app-loading></app-loading>
+}

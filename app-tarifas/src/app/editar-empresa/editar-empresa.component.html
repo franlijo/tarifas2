@@ -1,0 +1,7 @@
+@if (modelo) {
+    <app-formulario-empresa titulo="Editar Empresa Cliente" [modelo]="modelo"
+        (posteoFormulario)="guardarCambios($event)"></app-formulario-empresa>
+
+    <app-indice-empresas-importes [empresaABuscar]="id"></app-indice-empresas-importes>
+
+}
