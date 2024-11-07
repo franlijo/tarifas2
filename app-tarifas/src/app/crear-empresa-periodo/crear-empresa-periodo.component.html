@@ -1,0 +1,21 @@
+<h2>Nueva Periodo Cliente </h2>
+
+<form (submit)="guardarCambios()" [formGroup]="form">
+
+    <mat-form-field appearance="outline" >        
+        <mat-label>Fecha inicio</mat-label>
+        <input type="date" [formControl]="form.controls.desdeFecha" matInput/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" >        
+        <mat-label>Fecha fin</mat-label>
+        <input type="date" [formControl]="form.controls.hastaFecha" matInput/>
+    </mat-form-field>
+    <div>
+        <button type="submit" mat-flat-button>Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/empresas/editar/{{id}}">Cancelar</a>
+    </div>
+
+
+</form>
+

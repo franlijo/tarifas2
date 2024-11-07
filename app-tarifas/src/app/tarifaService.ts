@@ -9,18 +9,24 @@ import { TarifaDTO } from "./modelos/tarifa.modelos";
 })
 
 export class TarifaService {
-    constructor() {}
+    constructor() { }
 
     private http = inject(HttpClient);
     private URLbase = environment.apiURL + '/api/tablatarifa';
+    private _tarifaS?: TarifaDTO;
 
-    public obtenerTodos(): Observable<TarifaDTO[]>{
+   public set tarifa(tarifa: TarifaDTO) {
+        this.tarifa = tarifa;
+    }
+
+
+    public obtenerTodos(): Observable<TarifaDTO[]> {
         return this.http.get<TarifaDTO[]>(this.URLbase);
     }
 
 
 
-//   public obtenerTodos(): Observable<EmpresaDTO[]>{
-//     return this.http.get<EmpresaDTO[]>(this.URLbase);
-//   }
+    //   public obtenerTodos(): Observable<EmpresaDTO[]>{
+    //     return this.http.get<EmpresaDTO[]>(this.URLbase);
+    //   }
 }

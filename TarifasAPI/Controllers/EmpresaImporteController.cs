@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TarifasAPI.Entidades;
@@ -17,14 +18,16 @@ namespace TarifasAPI.Controllers
             this.context = context;
         }
 
-        [HttpGet]
+        [HttpGet] // DEVOLVER TODOS LOS IMPORTES DE TODAS LAS EMPRESAS
         public async Task<List<EmpresaImporte>> Get()
         {
             return await context.EmpresaImportes.ToListAsync();
         }
 
 
-        [HttpGet("{empresaId}")]
+
+
+        [HttpGet("{empresaId}")]  // DEVOLVER TODOS LOS IMPORTES DE UNA EMPRESA
         public async Task<List<EmpresaImporte>> Get(int empresaId)
         {
             return await context.EmpresaImportes
@@ -33,7 +36,8 @@ namespace TarifasAPI.Controllers
                                 .ToListAsync();
         }
 
-        [HttpGet("registro/{id}")]
+        // OBTENER UN UNICO REGISTRO POR SU ID
+        [HttpGet("registro/{id}", Name = "ObtenerEmpresaImportePorId")]
         public async Task<ActionResult<EmpresaImporte>> GetById(int id)
         {
             var empresaImporte = await context.EmpresaImportes
@@ -48,22 +52,13 @@ namespace TarifasAPI.Controllers
         }
 
 
-
-
-
-
-
-        // [HttpPost]
-
         [HttpPost]
-        public async Task<ActionResult<EmpresaImporte>> Create([FromBody] EmpresaImporte newEmpresaImporte)
-        {
-            // Agrega el nuevo registro a la base de datos
-            context.EmpresaImportes.Add(newEmpresaImporte);
+        public async Task<CreatedAtRouteResult> Post( [FromBody] EmpresaImporte empresaimporte){
+            
+            context.Add(empresaimporte);
             await context.SaveChangesAsync();
+            return CreatedAtRoute("ObtenerEmpresaImportePorId", new {id = empresaimporte.Id}, empresaimporte);
 
-            // Devuelve el nuevo registro junto con una respuesta HTTP 201 Created
-            return CreatedAtAction(nameof(GetById), new { id = newEmpresaImporte.Id }, newEmpresaImporte);
         }
 
 

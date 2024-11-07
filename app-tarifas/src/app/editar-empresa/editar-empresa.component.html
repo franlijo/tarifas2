@@ -1,7 +1,23 @@
 @if (modelo) {
+
     <app-formulario-empresa titulo="Editar Empresa Cliente" [modelo]="modelo"
         (posteoFormulario)="guardarCambios($event)"></app-formulario-empresa>
 
+    <div class="contenedor">
+    <div class="contenedor1">
+
+    <app-indice-empresas-periodos [empresaABuscar]="id"></app-indice-empresas-periodos>
+    </div>
+    
+    <div class="contenedor2">
     <app-indice-empresas-importes [empresaABuscar]="id"></app-indice-empresas-importes>
+    </div>
+    <div class="contenedor3">
+        <app-indice-empresa-trabajadores [empresaABuscar]="id"></app-indice-empresa-trabajadores>
+    </div>
+    <div class="contenedor4">
+        <app-calculo-servicio [empresaABuscar]=" id"></app-calculo-servicio>
+    </div>
+</div>    
 
 }

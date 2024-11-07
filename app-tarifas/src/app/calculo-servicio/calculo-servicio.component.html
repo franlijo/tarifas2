@@ -1,0 +1,82 @@
+<div>
+<h2>Listado de Cuotas, Ingresos y Saldos</h2>
+
+
+    <!-- <button mat-flat-button routerLink="/empresas/trabajadores/crear/{{empresaABuscar}}">
+        Nuevo Numero Trabajadores
+    </button> -->
+
+    <button mat-flat-button (click)="actualizarPrecios()">Actualizar Calculos</button>
+
+</div>
+
+
+@if (datosResumen){
+
+<table mat-table [dataSource]="datosResumen" class="mat-elevation-z8 indice-elementos">
+    <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>Desde Fecha</th>
+        <td mat-cell *matCellDef="let datos">{{datos.fecha}}</td>
+    </ng-container>
+    <ng-container matColumnDef="numTrab">
+        <th mat-header-cell *matHeaderCellDef># Trab</th>
+        <td mat-cell *matCellDef="let datos">{{datos.numTrab}}</td>
+    </ng-container>
+    <ng-container matColumnDef="precioUnidad">
+        <th mat-header-cell *matHeaderCellDef>€ unitario</th>
+        <td mat-cell *matCellDef="let datos">{{datos.precioUnidad}}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalcoste">
+        <th mat-header-cell *matHeaderCellDef>Coste día</th>
+        <td mat-cell *matCellDef="let datos">{{datos.totalcoste}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ingreso">
+        <th mat-header-cell *matHeaderCellDef>Ingreso</th>
+        <td mat-cell *matCellDef="let datos">{{datos.ingreso}}</td>
+    </ng-container>
+    <ng-container matColumnDef="saldo">
+        <th mat-header-cell *matHeaderCellDef>Saldo</th>
+        <td mat-cell *matCellDef="let datos">{{datos.saldo}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnasAMostrar"></tr>
+
+
+</table>
+
+
+
+}@else {
+<app-loading></app-loading>
+}
+
+<div class="totales-container">
+    <h3>Resumen de Totales</h3>
+    <div class="totales">
+      <div class="total-item">
+        <span class="label">Total Ingresos:</span>
+        <span class="value" id="totalIngresos">{{totalIngresos}}</span>
+      </div>
+      <div class="total-item">
+        <span class="label">Total Gastos:</span>
+        <span class="value" id="totalGastos">{{totalGastos}}</span>
+      </div>
+      <div class="total-item">
+        <span class="label">Saldo:</span>
+        <span class="value" id="totalSaldo">{{totalSaldo}}</span>
+      </div>
+      <div class="total-item">
+        <span class="label">Total Días:</span>
+        <span class="value" id="totalDias">{{totalDias}}</span>
+      </div>
+      <div class="total-item">
+        <span class="label">Total Servicios:</span>
+        <span class="value" id="totalServicios">{{totalServicios}}</span>
+      </div>
+      <div class="total-item">
+        <span class="label">Media:</span>
+        <span class="value" id="totalServicios">{{(totalServicios/totalDias)}}</span>
+      </div>
+    </div>
+  </div>  

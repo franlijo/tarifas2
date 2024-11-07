@@ -4,53 +4,41 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
-import { EmpresaImportesService } from '../empresa-importes.service';
-import { EmpresaImporteCreacionDTO } from '../modelos/empresaImportes.modelos';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { EmpresaPeriodoService } from '../empresa-periodos.service';
+import { EmpresaPeriodoCreacionDTO } from '../modelos/empresaperiodo.modelos';
 
 @Component({
-  selector: 'app-crear-empresa-importe',
+  selector: 'app-crear-empresa-periodo',
   standalone: true,
   imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, RouterLink, MatDatepickerModule],
-  templateUrl: './crear-empresa-importe.component.html',
-  styleUrl: './crear-empresa-importe.component.css'
+  templateUrl: './crear-empresa-periodo.component.html',
+  styleUrl: './crear-empresa-periodo.component.css'
 })
-export class CrearEmpresaImporteComponent {
+export class CrearEmpresaPeriodoComponent {
   private readonly formBuilder = inject(FormBuilder);
-  empresaimporteService = inject(EmpresaImportesService);
+  empresaperiodoServicio = inject(EmpresaPeriodoService);
   router = inject(Router);
-  
 
   @Input({ transform: numberAttribute })
   id!: number;
 
-
   form = this.formBuilder.group(
     {
       empresaId: 0,
-      fecha: new Date(),
-//      fecha: new Date().toISOString().split('T')[0],
-      importe: 0
+      hastaFecha: new Date(),
+      desdeFecha: new Date()
     }
   )
-
-
   guardarCambios() {
     this.form.value.empresaId = this.id;
 
-    let empresaimporte = this.form.value as EmpresaImporteCreacionDTO;
+    let empresaperiodo = this.form.value as EmpresaPeriodoCreacionDTO;
 
     
-    this.empresaimporteService.crear(empresaimporte).subscribe(() => {
+    this.empresaperiodoServicio.crear(empresaperiodo).subscribe(() => {
       this.router.navigate(['empresas', 'editar', this.id]);
-    })
-
-    // this.empresaimporteService.crear(empresaimporte).subscribe(() =>{
-    //   this.router.navigate(["empresa/importe/editar"]);
-    // });
+    });
 
   }
-
-
 }

@@ -1,0 +1,38 @@
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  grid-template-rows: 1fr 1fr auto; /* Dos filas iguales y una para el contenedor de resultados */
+  gap: 10px; /* Espacio entre los contenedores */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  padding: 10px; /* Margen interno alrededor del contenedor */
+}
+
+.contenedor1 {
+  grid-column: 1; /* Primera columna */
+  grid-row: 1; /* Primera fila */
+  padding: 20px;
+  background-color: lightcoral;
+}
+
+.contenedor2 {
+  grid-column: 2; /* Segunda columna */
+  grid-row: 1 / span 2; /* Ocupa ambas filas en la segunda columna */
+  padding: 20px;
+  background-color: lightblue;
+}
+
+.contenedor3 {
+  grid-column: 1; /* Primera columna */
+  grid-row: 2; /* Segunda fila */
+  padding: 20px;
+  background-color: lightgreen;
+}
+
+.contenedor4 {
+  grid-column: 1 / span 2; /* Ocupa ambas columnas */
+  grid-row: 3; /* Tercera fila */
+  padding: 20px;
+  background-color: lightgray;
+  text-align: center;
+}
+

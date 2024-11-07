@@ -1,12 +1,6 @@
-<h2>Nueva Cuota Cliente </h2>
+<h2>Nueva Número de trabajadores a facturar</h2>
 
 <form (submit)="guardarCambios()" [formGroup]="form">
-    <!-- <mat-form-field appearance="outline" >
-        <mat-label>Fecha</mat-label>
-        <input matInput [matDatepicker]="picker" [formControl]="form.controls.fecha" />
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    </mat-form-field> -->
 
     <mat-form-field appearance="outline" >        
         <mat-label>Fecha</mat-label>
@@ -14,8 +8,8 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" >        
-        <mat-label>Importe</mat-label>
-        <input [formControl]="form.controls.importe" matInput/>
+        <mat-label>Num.Trabajadores</mat-label>
+        <input [formControl]="form.controls.numeroTrabajadores" matInput/>
     </mat-form-field>
     <div>
         <button type="submit" mat-flat-button>Guardar Cambios</button>
@@ -24,3 +18,4 @@
 
 
 </form>
+

@@ -35,14 +35,15 @@ export class IndiceEmpresasImportesComponent implements OnInit {
   cargarEmpresasImportes() {
 
 
-    this.empresaImporteService.obtenerPorEmpresaId(this.empresaABuscar).subscribe(empresasimportes => {
-      this.empresaImportes = empresasimportes;
+    this.empresaImporteService.obtenerPorEmpresaId(this.empresaABuscar)
+      .subscribe(empresasimportes => {
+        this.empresaImportes = empresasimportes;
     });
 
   }
 
   borrar(id: number){
-    console.log(id);
+    
     this.empresaImporteService.borrar(id).subscribe(()=> {
       this.empresaImportes= undefined;
       this.cargarEmpresasImportes();

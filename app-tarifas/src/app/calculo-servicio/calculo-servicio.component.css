@@ -1,0 +1,58 @@
+h2 {
+    display: inline-block; /* Asegura que el h2 ocupe solo el espacio necesario */
+    margin: 0; /* Elimina el margen para alinearlo mejor con el botón */
+  }
+  
+  div {
+    display: flex; /* Usa Flexbox en el contenedor */
+    align-items: center; /* Alinea verticalmente el contenido */
+    justify-content: space-between; /* Coloca el h2 a la izquierda y el botón a la derecha */
+  }
+
+  button {
+    margin-bottom: 5px;
+  }
+
+  .totales-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .totales-container h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .totales {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .total-item {
+    width: 48%;
+    padding: 10px 0;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .value {
+    color: #333;
+  }

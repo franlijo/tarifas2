@@ -28,7 +28,7 @@ export class TablatarifasComponent {
   cargarTarifas(){
     this.tarifaService.obtenerTodos().subscribe(tarifas => {
       this.tarifas = tarifas;
-    console.log(tarifas);
+    
     })
   }
 
